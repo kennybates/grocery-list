@@ -25,7 +25,8 @@ function App() {
       // handle edit
     }
     else {
-      // show alert
+      // show alert - name value is true
+      showAlert(true, 'success', 'item added to the list'); 
       const newItem = {id: new Date().getTime().toString(), title: name}; // newItem
       setList([...list, newItem]); //spread operator to get previous list values 
       setName('');
