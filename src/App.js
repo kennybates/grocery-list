@@ -20,6 +20,13 @@ function App() {
       <form  className='grocery-form' onSubmit={handleSubmit}>
         {alert.show && <Alert />}
         <h3> Grocery List</h3>
+        <div className='form-control'>
+          <input type='text' className='grocery' placeholder='e.g. eggs'>
+          </input>
+          <button type='submit' className='submit-btn'>
+            {isEditing ? 'edit' : 'submit'}
+          </button>
+        </div>
       </form>
       <div className='grocery-container'>
         <List />
