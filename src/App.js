@@ -12,6 +12,7 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log('kenny');
   
   };
 
@@ -21,7 +22,7 @@ function App() {
         {alert.show && <Alert />}
         <h3> Grocery List</h3>
         <div className='form-control'>
-          <input type='text' className='grocery' placeholder='e.g. eggs'>
+          <input type='text' className='grocery' placeholder='e.g. eggs' value={name} onChange={(e)=> setName(e.target.value)}>
           </input>
           <button type='submit' className='submit-btn'>
             {isEditing ? 'edit' : 'submit'}
