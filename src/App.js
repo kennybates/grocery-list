@@ -10,12 +10,24 @@ function App() {
   const [editID, setEditID] = useState(null); // which ID will be edited
   const [alert, setAlert] = useState({ show: false, msg: '', type: ''});
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  
+  };
+
   return (
-    <article>
-      <div className='container'>
-        <h2>Grocery List</h2>
+    <section className='section-center'>
+      <form  className='grocery-form' onSubmit={handleSubmit}>
+        {alert.show && <Alert />}
+        <h3> Grocery List</h3>
+      </form>
+      <div className='grocery-container'>
+        <List />
+        <button className='clear-btn'>
+          Clear Items
+        </button>
       </div>
-    </article>
+    </section>
   );
 }
 
