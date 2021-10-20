@@ -12,7 +12,20 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('kenny');
+    
+    if(!name){ // if value is empty
+      //display alert
+
+    }
+    else if (name && isEditing){ // if value and isEditing
+      // handle edit
+    }
+    else {
+      // show alert
+      const newItem = {id: new Date().getTime().toString(), title: name}; // newItem
+      setList([...list, newItem]); //spread operator to get previous list values 
+      setName('');
+    }
   
   };
 
@@ -30,7 +43,7 @@ function App() {
         </div>
       </form>
       <div className='grocery-container'>
-        <List />
+        <List items={list}/>
         <button className='clear-btn'>
           Clear Items
         </button>
