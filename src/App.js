@@ -9,9 +9,9 @@ function App() {
   const [isEditing, setIsEditing] = useState(false);
   const [editID, setEditID] = useState(null); // which ID will be edited
   const [alert, setAlert] = useState({ 
-    show: true, 
-    msg: 'Hello', 
-    type: 'success'
+    show: false, 
+    msg: '', 
+    type: ''
   });
 
   const handleSubmit = (e) => {
@@ -19,7 +19,7 @@ function App() {
     
     if(!name){ // if value is empty
       //display alert
-
+      showAlert(true, 'danger', 'Please enter value');
     }
     else if (name && isEditing){ // if value and isEditing
       // handle edit
@@ -30,8 +30,14 @@ function App() {
       setList([...list, newItem]); //spread operator to get previous list values 
       setName('');
     }
-  
   };
+
+  // showAlert function - handles alert props
+  const showAlert = (show=false, type="", msg="") => {
+    setAlert({show,type, msg});
+  };
+
+  
 
   return (
     <section className='section-center'>
